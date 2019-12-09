@@ -1,0 +1,11 @@
+extends layout
+
+include mixins/_loginForm
+include mixins/_forgotForm
+
+block content
+  .inner
+    p.single__review #[strong Email:] demo@example.com 
+    p.single__review #[strong Password:] demo
+    +loginForm()
+    +forgotForm()
