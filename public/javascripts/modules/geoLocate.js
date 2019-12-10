@@ -20,9 +20,8 @@ function getLocation(e) {
     throw new Error("Error getting location!");
   }
   if (!navigator.geolocation) {
-    console.log("Geolocation is not supported by your browser");
+    alert("Geolocation is not supported by your browser");
   } else {
-    console.log("Locating...");
     navigator.geolocation.getCurrentPosition(success, error);
   }
 }

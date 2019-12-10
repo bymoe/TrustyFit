@@ -91,6 +91,7 @@
     position: relative;
     padding: 1rem;
     max-height: 52px;
+    overflow: hidden;
     &.phone,
     &.email {
       background: #4caf50;
@@ -104,5 +105,74 @@
       fill: white;
       margin-bottom: 1rem;
     }
+  }
+}
+
+$r: 15px;
+$diam: $r * 2;
+$color: #fff;
+
+.pulse-container {
+  position: absolute;
+  top: 25px;
+  right: -5px;
+  transform: translate(-50%, -50%);
+
+  .pulse-item {
+    position: relative;
+    height: $diam;
+    width: $diam;
+    background: transparent;
+    border-radius: 100%;
+
+    &:before,
+    &:after {
+      border: 1px solid $color;
+      content: "";
+      width: 100%;
+      display: block;
+      position: absolute;
+      height: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: 100%;
+      transform-origin: center center;
+      opacity: 0;
+      box-sizing: border-box;
+    }
+
+    &:before {
+      animation: 1s 0.1s pulse2 infinite linear;
+    }
+
+    &::after {
+      animation: 1s pulse infinite linear;
+    }
+  }
+}
+
+// outer circle
+@keyframes pulse {
+  0% {
+    transform: scale(2);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(2.3);
+    opacity: 0;
+  }
+}
+
+// inner circle
+@keyframes pulse2 {
+  0% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
   }
 }

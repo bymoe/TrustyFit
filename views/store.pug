@@ -14,13 +14,15 @@ block content
     img.single__map(src=h.staticMap(store.location.coordinates))
     p.single__location= store.location.address
     a(href=`#` data-lat=`${store.location.coordinates[1]}` data-lng=`${store.location.coordinates[0]}`).single__contact.direction
-        = 'Go'
+        != h.icon('direction')
     if store.email
       a(href=`mailto:${store.email || ''}`).single__contact.email
         != h.icon('email')
     if store.phone
       a(href=`tel:${store.phone || ''}`).single__contact.phone
-        != h.icon('phone')
+        != h.icon('phone2')
+        .pulse-container
+          .pulse-item
     p.single__desc= store.description
     if store.tags
       ul.tags

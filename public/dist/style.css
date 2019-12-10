@@ -965,7 +965,8 @@ label {
   float: right;
   position: relative;
   padding: 1rem;
-  max-height: 52px; }
+  max-height: 52px;
+  overflow: hidden; }
   .single__contact.phone, .single__contact.email {
     background: #4caf50; }
   .single__contact.direction {
@@ -975,6 +976,55 @@ label {
     transition: all 0.2s;
     fill: white;
     margin-bottom: 1rem; }
+
+.pulse-container {
+  position: absolute;
+  top: 25px;
+  right: -5px;
+  -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+  .pulse-container .pulse-item {
+    position: relative;
+    height: 30px;
+    width: 30px;
+    background: transparent;
+    border-radius: 100%; }
+    .pulse-container .pulse-item:before, .pulse-container .pulse-item:after {
+      border: 1px solid #fff;
+      content: "";
+      width: 100%;
+      display: block;
+      position: absolute;
+      height: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: 100%;
+      -ms-transform-origin: center center;
+          transform-origin: center center;
+      opacity: 0;
+      box-sizing: border-box; }
+    .pulse-container .pulse-item:before {
+      animation: 1s 0.1s pulse2 infinite linear; }
+    .pulse-container .pulse-item::after {
+      animation: 1s pulse infinite linear; }
+
+@keyframes pulse {
+  0% {
+    transform: scale(2);
+    opacity: 0.2; }
+  100% {
+    transform: scale(2.3);
+    opacity: 0; } }
+
+@keyframes pulse2 {
+  0% {
+    transform: scale(1.5);
+    opacity: 0.5; }
+  100% {
+    transform: scale(1.8);
+    opacity: 0; } }
 
 .heart__button {
   background: none;
