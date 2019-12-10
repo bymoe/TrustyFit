@@ -13,6 +13,8 @@ block content
   .single__details.inner
     img.single__map(src=h.staticMap(store.location.coordinates))
     p.single__location= store.location.address
+    a(href="#").single__contact.direction
+      = ip
     if store.email
       a(href=`mailto:${store.email || ''}`).single__contact.email
         != h.icon('email')
@@ -36,3 +38,4 @@ block content
         each review in store.reviews
           .review
             +review(review)
+

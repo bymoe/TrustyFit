@@ -91,11 +91,12 @@
     position: relative;
     padding: 1rem;
     max-height: 52px;
-    &.phone {
-      background: #4caf50;
-    }
+    &.phone,
     &.email {
       background: #4caf50;
+    }
+    &.direction {
+      background: #4285f4;
     }
     svg {
       width: 30px;

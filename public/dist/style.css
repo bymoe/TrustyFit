@@ -966,10 +966,10 @@ label {
   position: relative;
   padding: 1rem;
   max-height: 52px; }
-  .single__contact.phone {
+  .single__contact.phone, .single__contact.email {
     background: #4caf50; }
-  .single__contact.email {
-    background: #4caf50; }
+  .single__contact.direction {
+    background: #4285f4; }
   .single__contact svg {
     width: 30px;
     transition: all 0.2s;
