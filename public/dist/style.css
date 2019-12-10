@@ -671,7 +671,8 @@ label {
       width: 40px;
       transition: all 0.2s;
       fill: white;
-      margin-bottom: 1rem; }
+      margin-bottom: 1rem;
+      max-height: 40px; }
     .nav__link:hover, .nav__link--active {
       border-bottom-color: rgba(0, 0, 0, 0.2);
       border-right-color: rgba(0, 0, 0, 0.05);
@@ -715,7 +716,9 @@ label {
 
 @media all and (max-width: 650px) {
   .nav__section {
-    width: 100%; }
+    width: 100%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
     .nav__section--user {
       -ms-flex-order: -1;
           order: -1;
@@ -932,6 +935,7 @@ label {
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.15); }
 
 .single__map {
+  cursor: pointer;
   border-radius: 3px;
   width: calc(100% + 6rem);
   max-width: none;
@@ -1049,7 +1053,8 @@ label {
     top: 0; }
   .heart__button svg {
     width: 25px;
-    fill: white; }
+    fill: white;
+    max-height: 40px; }
   .heart__button--hearted svg {
     fill: #ffc40e; }
   .heart__button--float:after {

@@ -14,4 +14,8 @@ makeMap($("#map"));
 const heartForms = $$("form.heart");
 heartForms.on("submit", ajaxHeart);
 const directionButton = $(".single__contact.direction");
-directionButton.on("click", geoLocate);
+const mapButton = $(".single__map");
+if (directionButton && mapButton) {
+  directionButton.on("click", geoLocate);
+  mapButton.on("click", geoLocate);
+}

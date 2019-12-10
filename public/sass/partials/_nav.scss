@@ -36,6 +36,7 @@
       transition: all 0.2s;
       fill: white;
       margin-bottom: 1rem;
+      max-height: 40px;
     }
     &:hover,
     &--active {
@@ -110,6 +111,7 @@
   .nav {
     &__section {
       width: 100%;
+      flex-wrap: wrap;
       &--user {
         order: -1;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
