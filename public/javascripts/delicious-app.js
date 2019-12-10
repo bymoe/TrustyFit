@@ -5,6 +5,7 @@ import autocomplete from "./modules/autocomplete";
 import typeAhead from "./modules/typeAhead";
 import makeMap from "./modules/map";
 import ajaxHeart from "./modules/heart";
+import geoLocate from "./modules/geoLocate";
 
 autocomplete($("#address"), $("#lat"), $("#lng"));
 typeAhead($(".search"));
@@ -12,3 +13,5 @@ typeAhead($(".search"));
 makeMap($("#map"));
 const heartForms = $$("form.heart");
 heartForms.on("submit", ajaxHeart);
+const directionButton = $(".single__contact.direction");
+directionButton.on("click", geoLocate);

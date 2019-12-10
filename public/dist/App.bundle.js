@@ -3350,6 +3350,10 @@ var _heart = __webpack_require__(12);
 
 var _heart2 = _interopRequireDefault(_heart);
 
+var _geoLocate = __webpack_require__(36);
+
+var _geoLocate2 = _interopRequireDefault(_geoLocate);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _autocomplete2.default)((0, _bling.$)("#address"), (0, _bling.$)("#lat"), (0, _bling.$)("#lng"));
@@ -3358,6 +3362,41 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _map2.default)((0, _bling.$)("#map"));
 var heartForms = (0, _bling.$$)("form.heart");
 heartForms.on("submit", _heart2.default);
+var directionButton = (0, _bling.$)(".single__contact.direction");
+directionButton.on("click", _geoLocate2.default);
+
+/***/ }),
+/* 35 */,
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function getLocation(e) {
+  e.preventDefault();
+  function success(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    console.log(latitude, longitude);
+    // return [latitude, longitude];
+  }
+
+  function error() {
+    throw new Error("Error getting location!");
+  }
+  if (!navigator.geolocation) {
+    console.log("Geolocation is not supported by your browser");
+  } else {
+    console.log("Locating...");
+    navigator.geolocation.getCurrentPosition(success, error);
+  }
+}
+
+exports.default = getLocation;
 
 /***/ })
 /******/ ]);
