@@ -4,6 +4,8 @@ function getLocation(e) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     console.log(latitude, longitude);
+    alert(latitude, longitude);
+
     // return [latitude, longitude];
   }
 
