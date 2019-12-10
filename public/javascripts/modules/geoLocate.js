@@ -1,12 +1,19 @@
+import { $ } from "./bling";
+
 function getLocation(e) {
+  const directionButton = $(".single__contact.direction");
   e.preventDefault();
   function success(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    console.log(latitude, longitude);
-    alert(latitude, longitude);
+    const userLat = position.coords.latitude;
+    const userLng = position.coords.longitude;
 
-    // return [latitude, longitude];
+    const storeLat = directionButton.getAttribute("data-lat");
+    const storeLng = directionButton.getAttribute("data-lng");
+
+    window.open(
+      `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${storeLat},${storeLng}`,
+      "_blank"
+    );
   }
 
   function error() {

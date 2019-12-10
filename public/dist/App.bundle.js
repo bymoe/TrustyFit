@@ -3376,15 +3376,20 @@ directionButton.on("click", _geoLocate2.default);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _bling = __webpack_require__(1);
+
 function getLocation(e) {
+  var directionButton = (0, _bling.$)(".single__contact.direction");
   e.preventDefault();
   function success(position) {
-    var latitude = position.coords.latitude;
-    var longitude = position.coords.longitude;
-    console.log(latitude, longitude);
-    alert(latitude, longitude);
+    var userLat = position.coords.latitude;
+    var userLng = position.coords.longitude;
 
-    // return [latitude, longitude];
+    var storeLat = directionButton.getAttribute("data-lat");
+    var storeLng = directionButton.getAttribute("data-lng");
+
+    window.open("https://www.google.com/maps/dir/?api=1&origin=" + userLat + "," + userLng + "&destination=" + storeLat + "," + storeLng, "_blank");
   }
 
   function error() {

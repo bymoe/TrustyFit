@@ -13,7 +13,7 @@ block content
   .single__details.inner
     img.single__map(src=h.staticMap(store.location.coordinates))
     p.single__location= store.location.address
-    a(href=`#`).single__contact.direction
+    a(href=`#` data-lat=`${store.location.coordinates[1]}` data-lng=`${store.location.coordinates[0]}`).single__contact.direction
         = 'Go'
     if store.email
       a(href=`mailto:${store.email || ''}`).single__contact.email
