@@ -513,6 +513,15 @@ p {
   margin-top: -9rem;
   font-size: 10rem;
   text-align: center; }
+  @media (max-width: 700px) {
+    .title--single {
+      font-size: 7rem; } }
+  @media (max-width: 500px) {
+    .title--single {
+      font-size: 5rem; } }
+  @media (max-width: 350px) {
+    .title--single {
+      font-size: 4rem; } }
 
 input, textarea {
   width: 100%;
