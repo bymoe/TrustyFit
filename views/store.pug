@@ -16,7 +16,10 @@ block content
     if geo
       - const [userLat, userLng] = geo.ll;
       a(href=`http://www.openstreetmap.org/?mlat=${userLat}&mlon=${userLng}&zoom=12`).single__contact.direction
-        = 'Go'
+        = ip
+    if !geo
+      a(href=`/nogeo`).single__contact.direction
+        = ip
     if store.email
       a(href=`mailto:${store.email || ''}`).single__contact.email
         != h.icon('email')

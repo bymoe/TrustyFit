@@ -98,14 +98,15 @@ exports.updateStore = async (req, res) => {
 };
 
 exports.getStoreBySlug = async (req, res, next) => {
-  const geo = geoip.lookup(req.iq);
+  const ip = req.ip;
+  const geo = geoip.lookup(ip);
   const store = await Store.findOne({ slug: req.params.slug }).populate(
     "author reviews"
   );
   if (!store) {
     return next();
   }
-  res.render("store", { title: store.name, store, geo });
+  res.render("store", { title: store.name, store, ip, geo });
 };
 
 exports.getStoresByTag = async (req, res) => {
