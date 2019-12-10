@@ -955,6 +955,27 @@ label {
   margin: 2rem 0 4rem;
   min-height: 150px; }
 
+.single__contact {
+  margin-top: -3rem;
+  margin-right: 5px;
+  border-radius: 3px;
+  background: #303030;
+  color: white;
+  display: inline-block;
+  float: right;
+  position: relative;
+  padding: 1rem;
+  max-height: 52px; }
+  .single__contact.phone {
+    background: #4caf50; }
+  .single__contact.email {
+    background: #4caf50; }
+  .single__contact svg {
+    width: 30px;
+    transition: all 0.2s;
+    fill: white;
+    margin-bottom: 1rem; }
+
 .heart__button {
   background: none;
   border: 0;

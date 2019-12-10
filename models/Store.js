@@ -14,6 +14,14 @@ const storeSchema = new mongoose.Schema(
       type: String,
       trim: true
     },
+    phone: {
+      type: String,
+      trim: true
+    },
+    email: {
+      type: String,
+      trim: true
+    },
     tags: [String],
     created: {
       type: Date,
@@ -99,6 +107,8 @@ storeSchema.statics.getTopStores = function() {
       $project: {
         photo: "$$ROOT.photo",
         name: "$$ROOT.name",
+        phone: "$$ROOT.name",
+        email: "$$ROOT.name",
         reviews: "$$ROOT.reviews",
         slug: "$$ROOT.slug",
         averageRating: { $avg: "$reviews.rating" }

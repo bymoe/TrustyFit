@@ -147,7 +147,7 @@ exports.mapStores = async (req, res) => {
     }
   };
   const stores = await Store.find(q).select(
-    "slug name desciption location photo"
+    "slug name phone email desciption location photo"
   );
   res.json(stores);
 };
