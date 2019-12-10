@@ -13,8 +13,10 @@ block content
   .single__details.inner
     img.single__map(src=h.staticMap(store.location.coordinates))
     p.single__location= store.location.address
-    a(href="#").single__contact.direction
-      = ip
+    if geo
+      - const [userLat, userLng] = geo.ll;
+      a(href=`http://www.openstreetmap.org/?mlat=${userLat}&mlon=${userLng}&zoom=12`).single__contact.direction
+        = 'Go'
     if store.email
       a(href=`mailto:${store.email || ''}`).single__contact.email
         != h.icon('email')

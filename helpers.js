@@ -6,9 +6,6 @@
 const express = require("express");
 const fs = require("fs");
 // moment.js is a handy library for displaying dates. We need this in our templates to display things like "Posted 5 minutes ago"
-exports.findMe = p => {
-  console.log(p);
-};
 exports.moment = require("moment");
 
 // Dump is a handy debugging function we can use to sort of "console.log" our data

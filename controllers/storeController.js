@@ -4,6 +4,7 @@ const User = mongoose.model("User");
 const multer = require("multer");
 const jimp = require("jimp");
 const uuid = require("uuid");
+const geoip = require("geoip-lite");
 
 const multerOptions = {
   storage: multer.memoryStorage(),
@@ -97,14 +98,14 @@ exports.updateStore = async (req, res) => {
 };
 
 exports.getStoreBySlug = async (req, res, next) => {
-  const ip = req.ip;
+  const geo = geoip.lookup(req.iq);
   const store = await Store.findOne({ slug: req.params.slug }).populate(
     "author reviews"
   );
   if (!store) {
     return next();
   }
-  res.render("store", { title: store.name, store, ip });
+  res.render("store", { title: store.name, store, geo });
 };
 
 exports.getStoresByTag = async (req, res) => {
