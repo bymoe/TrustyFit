@@ -523,11 +523,14 @@ p {
     .title--single {
       font-size: 4rem; } }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #e6e6e6; }
-  input.input--error, textarea.input--error {
+  border: 1px solid #e6e6e6;
+  border-radius: 3px; }
+  input.input--error,
+  textarea.input--error {
     border-color: red; }
 
 label {
@@ -850,7 +853,8 @@ label {
 
 .tag {
   display: block;
-  margin-right: 1rem; }
+  margin-right: 1rem;
+  margin: 5px; }
   .tag__choice {
     display: -ms-flexbox;
     display: flex;
@@ -866,7 +870,8 @@ label {
       z-index: 2; }
       .tag__choice input + label {
         background: #e6e6e6;
-        padding: 1rem 1rem 1rem 4rem; }
+        padding: 1rem 1rem 1rem 4rem;
+        border-radius: 3px; }
       .tag__choice input:checked + label {
         background: #ffc40e; }
   .tag__link {

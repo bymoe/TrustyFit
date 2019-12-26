@@ -10,6 +10,7 @@
 .tag {
   display: block;
   margin-right: 1rem;
+  margin: 5px;
   &__choice {
     display: flex;
     justify-content: center;
@@ -23,6 +24,7 @@
       & + label {
         background: $grey;
         padding: 1rem 1rem 1rem 4rem;
+        border-radius: 3px;
       }
       &:checked + label {
         background: $yellow;

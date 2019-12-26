@@ -1,7 +1,9 @@
-input, textarea {
-  width:100%;
-  padding:10px;
-  border: 1px solid $grey;
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
   &.input {
     &--error {
       border-color: red;

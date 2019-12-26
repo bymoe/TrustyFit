@@ -3,7 +3,7 @@ mixin storeForm(store = {})
     label(for="name") Name
     input(type="text" name="name" value=store.name) 
     label(for="description") Description
-    textarea(name="description")= store.description
+    textarea(name="description" rows="4")= store.description
     label(for="phone") Phone
     input(type="text" name="phone" value=store.phone) 
     label(for="phone") Email
