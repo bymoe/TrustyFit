@@ -23,5 +23,5 @@ block content
             - const avgRating = Math.round(store.averageRating * 10) /10;
             .review__stars.in__top(title=`Rated ${avgRating} out of 5 stars`)
               = `★`.repeat(avgRating)
-              = `☆`.repeat(5 - avgRating)
+              = `☆`.repeat(5 - Math.floor(avgRating))
               span= `(${avgRating.toFixed(1)})`

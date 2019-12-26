@@ -17,7 +17,7 @@ block content
       - const avgRating = storeWithReviews[0].averageRating;
       .review__stars.in__single(title=`Rated ${avgRating} out of 5 stars`)
           = `★`.repeat(avgRating)
-          = `☆`.repeat(5 - avgRating)
+          = `☆`.repeat(5 -  Math.floor(avgRating))
           span= `(${avgRating.toFixed(1)})`
     if store.phone
       a(href=`tel:${store.phone || ''}`).single__contact.phone
@@ -46,7 +46,7 @@ block content
         - const avgRating = storeWithReviews[0].averageRating;
         .review__stars.in___single(title=`Rated ${avgRating} out of 5 stars`)
           = `★`.repeat(avgRating)
-          = `☆`.repeat(5 - avgRating)
+          = `☆`.repeat(5 -  Math.floor(avgRating))
           span= `(Rated ${avgRating.toFixed(1)} in Average)`
       .reviews
         each review in store.reviews
