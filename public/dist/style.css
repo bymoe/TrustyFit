@@ -965,7 +965,7 @@ label {
   border-radius: 5px; }
 
 .single__desc {
-  margin: 2rem 0 4rem;
+  margin: 4rem 0 4rem;
   min-height: 150px; }
 
 .single__contact {
@@ -981,9 +981,11 @@ label {
   max-height: 52px;
   overflow: hidden; }
   .single__contact.phone, .single__contact.email {
-    background: #4caf50; }
+    background: #4caf50;
+    float: left; }
   .single__contact.direction {
-    background: #4285f4; }
+    background: #4285f4;
+    float: left; }
   .single__contact svg {
     width: 30px;
     transition: all 0.2s;
@@ -1132,6 +1134,46 @@ label {
     color: #ffc40e;
     margin-left: 10px;
     font-size: 20px; }
+    .review__stars.in__single {
+      font-size: 30px;
+      float: right;
+      margin-top: -2.5rem;
+      margin-right: 1rem;
+      background: #303030;
+      position: relative;
+      padding: 0.25rem;
+      border-radius: 3px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: center;
+          justify-content: center;
+      -ms-flex-align: center;
+          align-items: center; }
+      .review__stars.in__single span {
+        color: white;
+        font-size: 12px;
+        vertical-align: middle;
+        padding: 0 2px; }
+    .review__stars.in___single {
+      font-size: 30px;
+      margin-right: 1rem;
+      margin: 1rem;
+      background: white;
+      position: relative;
+      padding: 0.25rem;
+      border-radius: 3px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: center;
+      -ms-flex-align: center;
+      align-items: baseline;
+      display: inline-block;
+      border: 1px solid #e6e6e6; }
+      .review__stars.in___single span {
+        color: black;
+        font-size: 12px;
+        vertical-align: middle;
+        padding: 0 2px; }
   .review__body {
     padding: 0rem 2rem; }
     .review__body p {

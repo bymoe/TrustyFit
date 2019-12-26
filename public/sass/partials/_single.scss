@@ -78,7 +78,7 @@
     border-radius: 5px;
   }
   &__desc {
-    margin: 2rem 0 4rem;
+    margin: 4rem 0 4rem;
     min-height: 150px;
   }
   &__contact {
@@ -96,9 +96,11 @@
     &.phone,
     &.email {
       background: #4caf50;
+      float: left;
     }
     &.direction {
       background: #4285f4;
+      float: left;
     }
     svg {
       width: 30px;

@@ -57,6 +57,47 @@
     color: $yellow;
     margin-left: 10px;
     font-size: 20px;
+    &.in__single {
+      font-size: 30px;
+      float: right;
+      margin-top: -2.5rem;
+      margin-right: 1rem;
+      background: #303030;
+      position: relative;
+      padding: 0.25rem;
+      border-radius: 3px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & span {
+        color: white;
+        font-size: 12px;
+        vertical-align: middle;
+        padding: 0 2px;
+      }
+    }
+    &.in___single {
+      font-size: 30px;
+      margin-right: 1rem;
+      margin: 1rem;
+      background: white;
+      position: relative;
+      padding: 0.25rem;
+      border-radius: 3px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: center;
+      -ms-flex-align: center;
+      align-items: baseline;
+      display: inline-block;
+      border: 1px solid #e6e6e6;
+      & span {
+        color: black;
+        font-size: 12px;
+        vertical-align: middle;
+        padding: 0 2px;
+      }
+    }
   }
   &__body {
     padding: 0rem 2rem;

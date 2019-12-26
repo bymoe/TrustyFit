@@ -121,6 +121,33 @@ storeSchema.statics.getTopStores = function() {
   ]);
 };
 
+storeSchema.statics.getStoreWithReviews = function(storeId) {
+  return this.aggregate([
+    // lookup stores and populate their reviews
+    {
+      $lookup: {
+        from: "reviews",
+        localField: "_id",
+        foreignField: "store",
+        as: "reviews"
+      }
+    },
+    // add the average reviews field
+    {
+      $project: {
+        photo: "$$ROOT.photo",
+        name: "$$ROOT.name",
+        phone: "$$ROOT.name",
+        email: "$$ROOT.name",
+        reviews: "$$ROOT.reviews",
+        slug: "$$ROOT.slug",
+        averageRating: { $avg: "$reviews.rating" }
+      }
+    },
+    { $match: { "reviews.store": storeId } }
+  ]);
+};
+
 // find reviews where stores _id prop. == review's store prop.
 storeSchema.virtual("reviews", {
   ref: "Review",

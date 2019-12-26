@@ -97,18 +97,6 @@ exports.updateStore = async (req, res) => {
   res.redirect(`/stores/${store._id}/edit`);
 };
 
-exports.getStoreBySlug = async (req, res, next) => {
-  const ip = req.ip;
-  const geo = geoip.lookup(ip);
-  const store = await Store.findOne({ slug: req.params.slug }).populate(
-    "author reviews"
-  );
-  if (!store) {
-    return next();
-  }
-  res.render("store", { title: store.name, store, ip, geo });
-};
-
 exports.getStoresByTag = async (req, res) => {
   const tag = req.params.tag;
   const tagQuery = tag || { $exists: true };
@@ -177,6 +165,19 @@ exports.getHearts = async (req, res) => {
     _id: { $in: req.user.hearts }
   });
   res.render("stores", { title: "Favourite Stores", stores });
+};
+
+exports.getStoreBySlug = async (req, res, next) => {
+  const ip = req.ip;
+  const geo = geoip.lookup(ip);
+  const store = await Store.findOne({ slug: req.params.slug }).populate(
+    "author reviews"
+  );
+  const storeWithReviews = await Store.getStoreWithReviews(store._id);
+  if (!store) {
+    return next();
+  }
+  res.render("store", { title: store.name, store, storeWithReviews, ip, geo });
 };
 
 exports.getTopStores = async (req, res) => {
