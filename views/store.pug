@@ -13,11 +13,12 @@ block content
   .single__details.inner
     img.single__map(src=h.staticMap(store.location.coordinates))
     p.single__location= store.location.address
-    - const avgRating = storeWithReviews[0].averageRating;
-    .review__stars.in__single(title=`Rated ${avgRating} out of 5 stars`)
-        = `★`.repeat(avgRating)
-        = `☆`.repeat(5 - avgRating)
-        span= `(${avgRating.toFixed(1)})`
+    if storeWithReviews && storeWithReviews[0]
+      - const avgRating = storeWithReviews[0].averageRating;
+      .review__stars.in__single(title=`Rated ${avgRating} out of 5 stars`)
+          = `★`.repeat(avgRating)
+          = `☆`.repeat(5 - avgRating)
+          span= `(${avgRating.toFixed(1)})`
     if store.phone
       a(href=`tel:${store.phone || ''}`).single__contact.phone
         != h.icon('phone2')
@@ -41,10 +42,12 @@ block content
     if user
      +reviewForm(store)
     if store.reviews
-      .review__stars.in___single(title=`Rated ${avgRating} out of 5 stars`)
-        = `★`.repeat(avgRating)
-        = `☆`.repeat(5 - avgRating)
-        span= `(Rated ${avgRating.toFixed(1)} in Average)`
+      if storeWithReviews && storeWithReviews[0]
+        - const avgRating = storeWithReviews[0].averageRating;
+        .review__stars.in___single(title=`Rated ${avgRating} out of 5 stars`)
+          = `★`.repeat(avgRating)
+          = `☆`.repeat(5 - avgRating)
+          span= `(Rated ${avgRating.toFixed(1)} in Average)`
       .reviews
         each review in store.reviews
           .review

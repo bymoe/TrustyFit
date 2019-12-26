@@ -98,6 +98,23 @@
         padding: 0 2px;
       }
     }
+    &.in__top {
+      font-size: 30px;
+      margin: 0 auto;
+      background: #303030;
+      position: relative;
+      padding: 0.25rem;
+      border-radius: 3px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & span {
+        color: white;
+        font-size: 12px;
+        vertical-align: middle;
+        padding: 0 2px;
+      }
+    }
   }
   &__body {
     padding: 0rem 2rem;

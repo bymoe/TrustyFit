@@ -743,7 +743,14 @@ label {
 .table {
   width: 100%; }
   .table td {
-    padding: 5px; }
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Panama", sans-serif; }
+    .table td img {
+      height: 100px;
+      object-fit: cover; }
   .table tr:nth-child(even) {
     background: white; }
   .table tr:nth-child(odd):not(:first-child) {
@@ -1171,6 +1178,24 @@ label {
       border: 1px solid #e6e6e6; }
       .review__stars.in___single span {
         color: black;
+        font-size: 12px;
+        vertical-align: middle;
+        padding: 0 2px; }
+    .review__stars.in__top {
+      font-size: 30px;
+      margin: 0 auto;
+      background: #303030;
+      position: relative;
+      padding: 0.25rem;
+      border-radius: 3px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: center;
+          justify-content: center;
+      -ms-flex-align: center;
+          align-items: center; }
+      .review__stars.in__top span {
+        color: white;
         font-size: 12px;
         vertical-align: middle;
         padding: 0 2px; }
