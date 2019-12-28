@@ -97,15 +97,6 @@ exports.updateStore = async (req, res) => {
   res.redirect(`/stores/${store._id}/edit`);
 };
 
-exports.getStoresByTag = async (req, res) => {
-  const tag = req.params.tag;
-  const tagQuery = tag || { $exists: true };
-  const tagsPromise = Store.getTagsList();
-  const storesPromise = Store.find({ tags: tagQuery });
-  const [tags, stores] = await Promise.all([tagsPromise, storesPromise]);
-  res.render("tag", { tags, title: "Tags", tag, stores });
-};
-
 exports.searchStores = async (req, res) => {
   const stores = await Store.find(
     {
@@ -180,7 +171,31 @@ exports.getStoreBySlug = async (req, res, next) => {
   res.render("store", { title: store.name, store, storeWithReviews, ip, geo });
 };
 
+exports.getStoresByTag = async (req, res) => {
+  const tag = req.params.tag;
+  const tagQuery = tag || { $exists: true };
+  const tagsPromise = Store.getTagsList();
+  const storesPromise = Store.find({ tags: tagQuery });
+  const [tags, stores] = await Promise.all([tagsPromise, storesPromise]);
+  res.render("tag", { tags, title: "Tags", tag, stores });
+};
+
+exports.getTopStoresByTag = async (req, res) => {
+  const tag = req.params.tag;
+  const tagQuery = tag || { $exists: true };
+  const tagsPromise = Store.getTagsList();
+  // const storesPromise = Store.find({ tags: tagQuery });
+  // const [tags, stores] = await Promise.all([tagsPromise, storesPromise]);
+  const [tags] = await Promise.all([tagsPromise]);
+  const stores = await Store.getTopStoresByTag(tag);
+  res.render("topStores", { stores, tags, tag, title: "🟊 Top Stores" });
+};
+
 exports.getTopStores = async (req, res) => {
+  const tag = req.params.tag;
+  const tagQuery = tag || { $exists: true };
+  const tagsPromise = Store.getTagsList();
+  const [tags] = await Promise.all([tagsPromise]);
   const stores = await Store.getTopStores();
-  res.render("topStores", { stores, title: "🟊 Top Stores" });
+  res.render("topStores", { stores, tags, title: "🟊 Top Stores" });
 };

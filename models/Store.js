@@ -121,6 +121,38 @@ storeSchema.statics.getTopStores = function() {
   ]);
 };
 
+storeSchema.statics.getTopStoresByTag = function(tag) {
+  return this.aggregate([
+    // lookup stores and populate their reviews
+    {
+      $lookup: {
+        from: "reviews",
+        localField: "_id",
+        foreignField: "store",
+        as: "reviews"
+      }
+    },
+    // filter for only items that have 2 or more reviews
+    { $match: { "tags.0": tag } },
+    // add the average reviews field
+    {
+      $project: {
+        photo: "$$ROOT.photo",
+        name: "$$ROOT.name",
+        phone: "$$ROOT.name",
+        email: "$$ROOT.name",
+        reviews: "$$ROOT.reviews",
+        slug: "$$ROOT.slug",
+        averageRating: { $avg: "$reviews.rating" }
+      }
+    },
+    // sort it highest reviews first
+    { $sort: { averageRating: -1 } },
+    // limit to at most 10
+    { $limit: 10 }
+  ]);
+};
+
 storeSchema.statics.getStoreWithReviews = function(storeId) {
   return this.aggregate([
     // lookup stores and populate their reviews

@@ -2,13 +2,23 @@ extends layout
 
 block content
   .inner
-    h2 Top #{stores.length} Stores
+    //- pre=h.dump(stores)
+    if tag
+      h2 Top #{tag}s
+    else
+       h2 Top #{stores.length} Stores
+    ul.tags
+      each t in tags
+        li.tag
+          a.tag__link(href=`/top/${t._id}` class=(t._id === tag ? 'tag__link--active' : ''))
+            span.tag__text= t._id
+            span.tag__count= t.count
     table.table
       thead
         td #
         td name
         td photo
-        td reviews
+        //- td reviews
         td Average Rating
       each store, i in stores
         tr
@@ -17,7 +27,7 @@ block content
           td
             a(href=`/store/${store.slug}`)
               img(width=200 src=`/uploads/${store.photo || 'store.png'}` alt=store.name)
-          td= store.reviews.length
+          //- td= store.reviews.length
           //- td #{Math.round(store.averageRating * 10) /10} / 5
           td 
             - const avgRating = Math.round(store.averageRating * 10) /10;
